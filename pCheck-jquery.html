@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+        <nav class="navbar navbar-dark bg-dark">
+                <span class="navbar-brand mb-0 h1">PayCheck-Check</span>
+              </nav>
+              <br>
+
+    <div class="main">
+        <div class="list">
+    <form class="form">
+        <div class="form-container">
+            <input type="text" placeholder="hourly rate" class="hours">
+            <input type="text" placeholder="hours worked" class="rate">
+            <input type="text" placeholder="tax rate ex = .15" class="tax">
+        </div>
+        <br>    
+        <button type="submit" class="btn btn-dark" >submit</button>
+    </form>
+        <p class="result"></p>
+        </div>
+    </div>
+
+    <script>
+
+//payDay calculates overtime and deducts tax.
+
+$addButton = $('.btn')
+$hoursInput = $('.hours')
+$rateInput = $('.rate')
+$taxInput = $('.tax')  
+$list = $(".list")
+
+
+
+$addButton.on('click', function(evt) {
+    evt.preventDefault()
+    $hoursInputValue = $hoursInput.val()
+    $rateInputValue = $rateInput.val()
+    $taxInputValue  = $taxInput.val()
+    
+    if ($hoursInputValue <= 40) {
+        $payCheck = $hoursInputValue * $rateInputValue
+    }
+    else if ($hoursInputValue > 40) {
+        $payCheck = (40 * rateInputValue) + (hoursInputValue - 40) * (rateInputValue * 1.5)
+
+    }
+    else {
+        $payCheck = "Invalid Input"
+    }
+    $payCheck = $payCheck -($payCheck * $taxInputValue)
+
+    $total = $('<p>').append($payCheck)
+
+    
+    $list.append($total)
+    $hoursInput.val('')
+    $rateInput.val('')
+    $taxInput.val('')
+    }
+)
+    
+
+
+// ???}) = function() {
+    // evt.preventDefault()
+    //     payDay(document.querySelector("#hours").value,
+    //             document.querySelector("#rate").value,
+    //             document.querySelector("tax").value  
+    //     )
+    //     console.log("clicked")
+
+
+// function payDay(hours, rate, tax) {
+//     var payCheckTotal;
+//     hours = $hoursInputValue
+//     rate = $rateInputValue
+//     tax = taxInputValue
+
+// 	if (hours <= 40) {
+//         payCheck = hours * rate;
+//     }
+// 	else if (hours > 40) {
+// 		payCheck = (40 * rate) + (hours - 40) * (rate * 1.5)
+//     }
+// 	else {
+// 	console.log("no input")
+//     }
+// 	$payCheck =  payCheckTotal - (payCheck * tax)
+  
+// }
+
+
+
+    </script>
+
+</body>
+</html>
